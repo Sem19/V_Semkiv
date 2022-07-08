@@ -1,4 +1,5 @@
-const yearsOld = 2022 - Number(prompt('Enter the year of bith'));
+const currentYear = Number(2022);
+const yearsOld = currentYear - Number(prompt('Enter the year of bith'));
 const firstName = prompt('Enter your first name');
 const lastName = prompt('Enter your lasr name');
 
