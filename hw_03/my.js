@@ -1,12 +1,12 @@
+const currentYear = Number(2022);
 const firstName = String(prompt('Enter your firstname'));
 const lastName = String(prompt('Enter your lastname'));
 const day = Number(prompt('Enter the day you were born'));
 const month = Number(prompt('Enter the month you were born'));
 const year = Number(prompt('Enter the year you were born'));
-const yearOld = Number(2022 - year);
+const yearOld = Number(currentYear - year);
 
 if (month == 12){
-        
     if (day < 22){
         var sign = 'Sagittarius';
         var symbol = '♐';
@@ -16,7 +16,6 @@ if (month == 12){
         var symbol = '♑';
     }
 }
-    
 else if (month == 1){
     if (day < 20){
         var sign = 'Capricorn';
@@ -27,7 +26,6 @@ else if (month == 1){
         var symbol = '♒';
     }
 }
-    
 else if (month == 2){
     if (day < 19){
         var sign = 'Aquarius';
@@ -38,7 +36,6 @@ else if (month == 2){
         var symbol = '♓';
     }
 }
-    
 else if(month == 3){
     if (day < 21){
         var sign = 'Pisces';
@@ -59,7 +56,6 @@ else if (month == 4){
         var symbol = '♉';
     }
 }
-    
 else if (month == 5){
     if (day < 21){
         var sign = 'Taurus';
@@ -70,7 +66,6 @@ else if (month == 5){
         var symbol = '♊';
     }
 }
-    
 else if( month == 6){
     if (day < 21){
         var sign = 'Gemini';
@@ -81,7 +76,6 @@ else if( month == 6){
         var symbol = '♋';
     }
 }
-    
 else if (month == 7){
     if (day < 23){
         var sign = 'Cancer';
@@ -92,7 +86,6 @@ else if (month == 7){
         var symbol = '♌';
     }
 }
-    
 else if( month == 8){
     if (day < 23){
         var sign = 'Leo';
@@ -103,7 +96,6 @@ else if( month == 8){
         var symbol = '♍';
     }
 }
-    
 else if (month == 9){
     if (day < 23){
         var sign = 'Virgo';
@@ -114,7 +106,6 @@ else if (month == 9){
         var symbol = '♎';
     }
 }
-    
 else if (month == 10){
     if (day < 23){
         var sign = 'Libra';
@@ -125,7 +116,6 @@ else if (month == 10){
         var symbol = '♏';
     }
 }
-    
 else if (month == 11){
     if (day < 22){
         var sign = 'Scorpio';
@@ -136,10 +126,9 @@ else if (month == 11){
         var symbol = '♐';
     }
 };
-if  ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0)) {
-    alert(`User Bio: ${firstName} ${lastName}, ${yearOld} years old (leap year), ${sign} ${symbol}`);
-} else {
-    alert(`User Bio: ${firstName} ${lastName}, ${yearOld} years old, ${sign} ${symbol}`);
-};
-
+((year%4==0)&&(year%100!=0)||(year%400==0)) ?
+alert(`User Bio: ${firstName} ${lastName}, ${yearOld} years old (leap year), ${sign} ${symbol}`)
+: 
+alert(`User Bio: ${firstName} ${lastName}, ${yearOld} years old, ${sign} ${symbol}`);
+    
 
