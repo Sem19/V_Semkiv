@@ -1,0 +1,43 @@
+const emoticon = ['😉', '😊','😃','😆','😉','🙂','🤬','🤢','☠','👻'];
+
+let randomString = String(prompt('Enter string'));
+let operation = Number(prompt(`Enter the transaction number: 
+    1 unicode value;
+    2 delete symbol;
+    3 replace character;
+    4 number of letters.
+`));
+
+if (operation == 1){
+    let symbolIndex = Number(prompt('Enter symbol index'));
+    console.log(randomString.charCodeAt(symbolIndex - 1));
+}
+else if (operation == 2){
+    let symbolIndex = Number(prompt('Enter symbol index'));
+
+    var symbol = randomString[symbolIndex - 1];
+    var re = new RegExp(symbol, 'g');
+
+    randomString = randomString.replace(re, '');
+    console.log(randomString);
+}
+else if (operation == 3){
+    let symbolIndex = Number(prompt('Enter symbol index'));
+
+    function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max); 
+    
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+    const randomInt = String(getRandomIntInclusive(0, 10));
+    const symbol = emoticon[randomInt];
+
+    let string = randomString.substring(0, symbolIndex) + 
+    symbol + randomString.substring(symbolIndex + 1);
+    console.log(string)
+}
+else if (operation == 4){
+    let withoutspace = randomString.replace(/\s/g, '');
+    console.log(withoutspace.length);
+}
