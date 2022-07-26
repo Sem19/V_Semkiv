@@ -4,35 +4,50 @@ if (userAnswer === true) {
     console.log(`go!`);
     let final = ``;
     const countOfWords = 3;
-    let hasNumber = false;
-    let hasNumber2 = false;
+    let wordHasNumber = false;
+    let wordHasNumber2 = false;
 
     for (let wordNumber = 1; wordNumber <= countOfWords; wordNumber++) {
         let word;
         let transform;
         do {
             word = prompt(`Enter word #${wordNumber}`);
-            if (word) word = word.trim();
-        }   while (!word || word.toLowerCase() === `hello`);
+            if(word){
+                word = word.trim();
+                wordHasNumber = false;
 
-        for(let letter=0; letter<word.length; letter++){
-            if(!isNaN(+word[letter])) {
-            hasNumber = true;
-            word = prompt(`Enter word #${wordNumber}`);
-            }}
+                for(let letter=0; letter<word.length; letter++){
+                    let currentLetter = word[letter];
+                    let convertToNumber = Number(currentLetter);
+                    let letterIsNotNumber = isNaN(convertToNumber);
+
+                    if(letterIsNotNumber === false) {
+                        wordHasNumber = true;
+                    }
+                }
+            }
+
+        }   while (!word || word.toLowerCase() === `hello` || wordHasNumber);
 
         do {
             transform = prompt(`Choose type of transformation for #${wordNumber}:
             uppercase | lowercase | capitalize`);
-            if (transform) transform = transform.trim();
-        }   while (!transform || transform.toLowerCase() === `hello`);
+            if (transform) {
+                transform = transform.trim();
+                wordHasNumber2 = false;
 
-        for(let letter=0; letter<transform.length; letter++){
-            if(!isNaN(+transform[letter])) {
-            hasNumber2 = true;
-            transform = prompt(`Choose type of transformation for #${wordNumber}:
-            uppercase | lowercase | capitalize`);
-            }}
+                for(let letter=0; letter<transform.length; letter++){
+                    let currentLetter = transform[letter];
+                    let convertToNumber = Number(currentLetter);
+                    let letterIsNotNumber = isNaN(convertToNumber);
+
+                    if(letterIsNotNumber === false) {
+                        wordHasNumber2 = true;
+                    }
+                }
+            }
+
+        }   while (!transform || transform.toLowerCase() === `hello` || wordHasNumber2);
             
         if(transform == `uppercase`){
             final += word;
